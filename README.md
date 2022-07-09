@@ -5,15 +5,17 @@ It runs on .Net 6.0 runtime, you should have .Net 6 SDK or runtime installed on 
 
 ### Running the Windows Form
 
-**Step 1:** Navigate to "\PdfFormEditor\bin\Debug\net6.0-windows" within the application file path.
+**Step 1:** Navigate to "\PdfFormEditor.sln" within the application file path.
 
-**Step 2:** Double-click the "PdfFormEditor.exe" file to run the application.
+**Step 2:** Double-click the "PdfFormEditor.sln" file to open the application using your IDE.
 
-**Step 3:** Select the "PDF" document you'd like to modify.
+**Step 4:** Run the solution.
+
+**Step 5:** Select a PDF document you'd like to work with, a "DemoDocument.pdf" sample can be found in the "/SampleDocs" file path within this solution.
 
 **Note:** This application was built to accept PDF documents.
 
-**Step 4:** Click on the "Add Page" button to add a template page to the document.
+**Step 6:** Click on the "Add Page" button to add a template page to the document.
 
 ### Closing the Windows Form
 **Step 1:** click on the "X" at the top right corner of the document to close the application.
