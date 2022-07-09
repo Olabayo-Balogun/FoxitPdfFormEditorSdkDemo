@@ -3,6 +3,7 @@ using foxit.pdf;
 using foxit.pdf.objects;
 using System.Windows.Forms;
 using System.Drawing;
+using foxit.common.fxcrt;
 
 namespace PdfFormEditor
 {
@@ -21,7 +22,7 @@ namespace PdfFormEditor
         public PdfEditor()
         {
             InitializeComponent();
-            ScannedDocument = LoadDocument();
+            ScannedDocument = LoadDocument();            
         }
 
         
@@ -34,7 +35,7 @@ namespace PdfFormEditor
                 openFileDialog.AddExtension = true;
                 openFileDialog.Multiselect = false;
                 openFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
-                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     //For the purpose of this demo, the keys are used within the application.
                     //In a real world application, they should be treated as secret keys and protected accordingly
@@ -53,7 +54,30 @@ namespace PdfFormEditor
                     {
                         Library.Release();
                         return ScannedDocument;
-                    }                   
+                    }
+                    Page = ScannedDocument.GetPage(0);
+                    Page.StartParse((int)PDFPage.ParseFlags.e_ParsePageNormal, null, false);
+                    width = (int)(Page.GetWidth());
+                    height = (int)(Page.GetHeight());
+
+                    Matrix2D matrix = Page.GetDisplayMatrix(0, 0, width, height, Page.GetRotation());
+
+                    // Prepare a bitmap for rendering.
+                    foxit.common.Bitmap bitmap = new foxit.common.Bitmap(width, height, foxit.common.Bitmap.DIBFormat.e_DIBRgb32);
+                    System.Drawing.Bitmap sbitmap = bitmap.GetSystemBitmap();
+                    Graphics draw = Graphics.FromImage(sbitmap);
+                    draw.Clear(System.Drawing.Color.White);
+
+                    // Render page
+                    Renderer render = new Renderer(bitmap, false);
+                    render.StartRender(Page, matrix, null);
+
+                    // Add the bitmap to image and save the image.
+                    foxit.common.Image image = new foxit.common.Image();
+                    string imgPath = $"{FilePath.Split('.').First()}IndexPage.jpg";
+                    image.AddFrame(bitmap);
+                    image.SaveAs(imgPath);                    
+                    documentImage.Image = System.Drawing.Image.FromFile(imgPath);
                 }
                 return ScannedDocument;
             }
@@ -93,9 +117,7 @@ namespace PdfFormEditor
                 else
                 {
                     //The "pageIndexPosition" is used to get the location of the first template page (which changes as new pages are added).
-                    int pageIndexPosition = pageCount - 2;
-                    width = (int)(Page.GetWidth());
-                    height = (int)(Page.GetHeight());
+                    int pageIndexPosition = pageCount - 2;                    
                     Page = ScannedDocument.GetPage(pageIndexPosition);
                     NewTemplateNameTree = new PDFNameTree(ScannedDocument, PDFNameTree.Type.e_Pages);
 

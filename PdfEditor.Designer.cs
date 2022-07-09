@@ -59,12 +59,13 @@
         private void InitializeComponent()
         {
             this.AddPage = new System.Windows.Forms.Button();
+            this.documentImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.documentImage)).BeginInit();
             this.SuspendLayout();
-
             // 
             // AddPage
             // 
-            this.AddPage.Location = new System.Drawing.Point(547, 680);
+            this.AddPage.Location = new System.Drawing.Point(555, 715);
             this.AddPage.Name = "AddPage";
             this.AddPage.Size = new System.Drawing.Size(112, 34);
             this.AddPage.TabIndex = 1;
@@ -72,17 +73,33 @@
             this.AddPage.UseVisualStyleBackColor = true;
             this.AddPage.Click += new System.EventHandler(this.AddPage_Click);
             // 
+            // documentImage
+            // 
+            this.documentImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.documentImage.Location = new System.Drawing.Point(251, 45);
+            this.documentImage.Name = "documentImage";
+            this.documentImage.Size = new System.Drawing.Size(769, 619);
+            this.documentImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.documentImage.TabIndex = 2;
+            this.documentImage.TabStop = false;
+            // 
             // PdfEditor
             // 
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1214, 796);
             this.Controls.Add(this.AddPage);
+            this.Controls.Add(this.documentImage);
             this.Name = "PdfEditor";
+            ((System.ComponentModel.ISupportInitialize)(this.documentImage)).EndInit();
+            this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
         private Button AddPage;
-
-
+        private PictureBox documentImage;
     }
 }
