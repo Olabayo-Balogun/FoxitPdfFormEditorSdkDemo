@@ -55,6 +55,7 @@ namespace PdfFormEditor
                         Library.Release();
                         return ScannedDocument;
                     }
+                    //The purpose of the lines of code between line 59 and 81 is to render the first page of the selected PDF document in the windows form 
                     Page = ScannedDocument.GetPage(0);
                     Page.StartParse((int)PDFPage.ParseFlags.e_ParsePageNormal, null, false);
                     width = (int)(Page.GetWidth());
@@ -77,7 +78,7 @@ namespace PdfFormEditor
                     string imgPath = $"{FilePath.Split('.').First()}IndexPage.jpg";
                     image.AddFrame(bitmap);
                     image.SaveAs(imgPath);                    
-                    documentImage.Image = System.Drawing.Image.FromFile(imgPath);
+                    DocumentImage.Image = System.Drawing.Image.FromFile(imgPath);
                 }
                 return ScannedDocument;
             }
