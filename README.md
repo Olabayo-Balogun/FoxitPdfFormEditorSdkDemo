@@ -11,7 +11,7 @@ It runs on .Net 6.0 runtime, you should have .Net 6 SDK or runtime installed on 
 
 **Step 4:** Run the solution.
 
-**Step 5:** Select a PDF document you'd like to work with, a "DemoDocument.pdf" sample can be found in the "/SampleDocs" file path within this solution.
+**Step 5:** Select a PDF document you'd like to work with, a "Employee Benefits Form Template.pdf" sample can be found in the "/SampleDocs" file path within this solution.
 
 **Note:** This application was built to accept PDF documents.
 
