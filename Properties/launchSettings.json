@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PdfFormEditor": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
