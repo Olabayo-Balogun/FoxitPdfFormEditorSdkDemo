@@ -37,7 +37,7 @@
 	    <None Update="fsdk.dll">
 		    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	    </None>
-	    <None Update="DemoDocument.pdf">
+	    <None Update="Employee Benefits Form Template.pdf">
 		    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	    </None>
     </ItemGroup>
