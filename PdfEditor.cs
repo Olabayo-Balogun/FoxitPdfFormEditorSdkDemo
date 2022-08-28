@@ -43,6 +43,9 @@ namespace PdfFormEditor
                     ErrorCode error_code = Library.Initialize(sn, key);
                     if (error_code != ErrorCode.e_ErrSuccess)
                     {
+                        string message = "Unable to verify your SDK activation key";
+                        string title = "Load Document Status";
+                        MessageBox.Show(message, title);
                         return ScannedDocument;
                     }
 
@@ -51,6 +54,9 @@ namespace PdfFormEditor
                     var loadDocument = ScannedDocument.LoadW("");
                     if (error_code != ErrorCode.e_ErrSuccess)
                     {
+                        string message = "Unable to verify your SDK activation key";
+                        string title = "Load Document Status";
+                        MessageBox.Show(message, title);
                         Library.Release();
                         return ScannedDocument;
                     }
@@ -83,6 +89,9 @@ namespace PdfFormEditor
             }
             catch (Exception ex)
             {
+                string message = "An error occured, please contact your tech support";
+                string title = "Load Document Status";
+                MessageBox.Show(message, title);
                 throw;
             }
         }
@@ -101,9 +110,15 @@ namespace PdfFormEditor
                 //As a personal convention, this can help in reconciling the original document with the template document
                 ScannedDocument.SaveAs($"{FilePath.Split('.').First()}TemplatePage.pdf", (int)PDFDoc.SaveFlags.e_SaveFlagNoOriginal);
                 int pageNumbers = ScannedDocument.GetPageCount();
+                string message = $"PDF template page created!";
+                string title = "PDF Template Status";
+                MessageBox.Show(message, title);
             }
             catch (Exception ex)
             {
+                string message = "An error occured, please contact your tech support";
+                string title = "PDF Template Status";
+                MessageBox.Show(message, title);
                 throw;
             }
         }
