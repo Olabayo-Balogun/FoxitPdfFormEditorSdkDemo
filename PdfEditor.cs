@@ -38,6 +38,7 @@ namespace PdfFormEditor
                 {
                     //For the purpose of this demo, the keys are used within the application.
                     //In a real world application, they should be treated as secret keys and protected accordingly
+                    //Also note that the key is a trial one and is temporary, you're encouraged to signup to fully leverage Foxit's SDk.
                     string sn = "SXC5wsuLUEUO4OurtXCk18JnGcxp6hrx5I1X8TbpPYqwzwQ3vWxOkg==";
                     string key = "8f0YFUGMvRkN+ddwhrBxubRv+38Gz2ILMFDAylGsl9gEt83edTI+7gO6BL3Zwz4kg8iFbUBbTA0Fo1AkxlPp2d40Z8iMd8SHfgzBN4RXdnt8UAB+qfAI8OrWhPtzxO+yOivYHoRYeiFttZWqwI4X1fwdUGO37hYJVsD/EdiOZqAjvZBeI95cx5fY0CtsvH+NaMagwb6HwBNDT0dI45XNR9ycMEboU+Ia211DtwOplnZ25dOssAtBPNk21UxQnmZMQEwfr//15ssa7/OkxfZDJY1AlID9Vq8StY3iJCSn4q+t0dSoJkYM/lhZNkkn7OGPTjjx/WJ0yXN1SISFvrHgVbnLhwtVUnJ7wCz91NLIISUTmWRJRcEXu7CQmS4+QjDhBbtKAyG4urX9uNzkkn2Xbk/QN1D5Id6fYOrLxVwmjllIW7JASUgxpBRbt3qxYUuIZGxtu009yTB/NATboZS2FMngZD556sCMsT7Xb1JQwqyQ2WBRSm31qWi8g87e3MewMGaNW5T0P/NEqU619EX0RUiedSCm6ISqCeGXKqw1jJ4K56293J31qvn1DfwePzHg3O+Ga2eqHqERaNbCqtwGHpGo/DAa/r9qhipsO/W8BGfjDzRs9zvKvnjwIkoOoI/4HiQapyFG6F6rDW/C78gubmNjASjK9C9NtJ12F/qohlErie4gd8gik+L12bfrZPXs8j9pMNHFbzT50zYuRv0qt/f38goLxjKZkVS2V5do9n1ehlVf0Sq/EXzz+XX9xIjh6fL/0DykoTOXm8i/J40BOZ1e+0sDkI0vrYw6AvnFz1AKB6p4ROQyFUdmt5pRNlWRTMYxgrFf+jZ6g6LkmTd+d0+MT2MX45R2xKWF3JIiyrtZXxXplMur7dKe9B8B7rrJ8klvOnJzP8Buj4fHjxp8EFbBvscng1H5wdYrxB/PlWmH4ZY0iPn5zSP8Uauvy2osIRk/LadTjSSi3+z1XY7MkGai86eiu2EjQtlnnnEz0XWaguOJueVPErt7xGDgihqOeptG5nMwNi/S98/UX63lW/r9UNR40tN/1gGEropGpfHvDuviLWn8ANieWcxxlyL1U8D02lPoND/kfNBEsQY02ZWB+pZ2Qk3pLBuYL+YvkFabCyBXYVCp6Mjj7DYgg8jRPdtuxK5X9i4LveA9ViQI2tQcMfCsxS0YUf8bLxa4Yp7xJKfosFBACGSUU12XNaOEp9IrTkaXaqi+KTKUy5SI2JN5zD6Wjid43oDpi16eV39dLVlrRWI5MITj8rBrxg0CWyTLOwJ/um2vIqH1K9br27x0L5paRTxc9N7WIZci1gnxC8Jzjs5qwg==";
                     ErrorCode error_code = Library.Initialize(sn, key);
@@ -116,7 +117,7 @@ namespace PdfFormEditor
             }
             catch (Exception ex)
             {
-                string message = "An error occured, please contact your tech support";
+                string message = "The page template was already added";
                 string title = "PDF Template Status";
                 MessageBox.Show(message, title);
                 throw;
